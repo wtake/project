@@ -13,6 +13,7 @@ from boto3.dynamodb.conditions import Key
 # LINE環境変数設定
 line_notify_api = os.environ.get('line_notify_api')
 line_notify_token = os.environ.get('line_notify_token')
+IPADDR = os.environ.get('ipaddress')
 
 def lambda_handler(event, context):
     # DynamoDBオブジェクトを取得
@@ -59,7 +60,7 @@ def lambda_handler(event, context):
 
     #LINE通知設定
     if int(round(f)) <= int(item_count):
-        message = ("\n" + item_name + "が残り" + str(round(f)) + "個になりました。\n購入をお願いします。\n\nポータル：http://35.75.20.243:8080/")
+        message = ("\n" + item_name + "が残り" + str(round(f)) + "個になりました。\n購入をお願いします。\n\nポータル：" + IPADDR)
         return notify_to_line(message)
 
 
