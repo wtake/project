@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bootstrap Simple Login Form</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+<style type="text/css">
+	.login-form {
+		width: 340px;
+    	margin: 100px auto;
+	}
+    .login-form form {
+    	margin-bottom: 15px;
+        background: #f7f7f7;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+        padding: 30px;
+    }
+    .login-form h2 {
+        margin: 0 0 15px;
+    }
+    .form-control, .btn {
+        min-height: 38px;
+        border-radius: 2px;
+    }
+    .btn {        
+        font-size: 15px;
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+        <a class="navbar-brand" href="#">消耗品通知botくんポータル</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+        {% if login %}
+            <li class="active"><a href="/protected/">設定</a></li>      
+            {% else %}
+            {% endif %}
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+    {% if login %}
+    <li id="logout"><a href="/logout/">ログアウト</a></li>     
+    {% else %}
+    <li id="login" class="active"><a href="/login/">ログイン</a></li> 
+    {% endif %}
+        </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+    </nav>
+<div class="login-form">
+    <form action="" method="post">
+        <h2 class="text-center">ログイン</h2>       
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">ユーザー名</label>
+            <input type="text" class="form-control" required="required" name="username">
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">パスワード</label>
+            <input type="password" class="form-control" required="required" name="password">
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-block">ログイン</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>                                		                            
